@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/layout}">
+<head>
+    <title>Search</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="d-flex justify-content-center">
+            <div class="table-responsive-md">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <th:block th:each="customer : ${list}">
+                        <tr>
+                            <th scope="row" th:text="${customer.id}">...</th>
+                            <td th:text="${customer.firstName}"></td>
+                            <td th:text="${customer.lastName}">...</td>
+                            <td th:text="${customer.email}">..</td>
+                        </tr>
+                    </th:block>
+                    </tbody>
+                </table>
+                <div th:if="${#lists.isEmpty(list)}">
+                    No customer registration has been created.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
