@@ -13,30 +13,34 @@ import javax.validation.Valid;
 @Controller
 public class RegistrationController {
 
-    private CustomerService customerService;
+    private final CustomerService customerService;
+
+    static final String REGISTRATION = "registration";
+    static final String SEARCH       = "search";
+    static final String FORM         = "registrationForm";
 
     public RegistrationController(CustomerService customerService) {
         this.customerService = customerService;
     }
 
-    @GetMapping("/registration")
+    @GetMapping(REGISTRATION)
     public String registration(Model model) {
-        model.addAttribute(new RegistrationForm());
-        return "registration";
+        model.addAttribute(FORM, new RegistrationForm());
+        return REGISTRATION;
     }
 
-    @PostMapping("/registration")
+    @PostMapping(REGISTRATION)
     public String registration(Model model, @Valid RegistrationForm form, BindingResult result) {
         if (!result.hasErrors()) {
             customerService.save(form);
             model.addAttribute(new RegistrationForm());
         }
-        return "registration";
+        return REGISTRATION;
     }
 
-    @GetMapping("/search")
+    @GetMapping(SEARCH)
     public String search(Model model) {
-        model.addAttribute("list", customerService.search());
-        return "search";
+        model.addAttribute("list", customerService.find());
+        return SEARCH;
     }
 }

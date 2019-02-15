@@ -17,7 +17,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Customer {
-
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
