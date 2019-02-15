@@ -17,21 +17,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CustomerRepositoryTest {
     @Autowired
     private TestEntityManager entityManager;
-
     @Autowired
     private CustomerRepository repository;
 
     @Test
-    public void testFindByLastName() {
-        Customer customer = new Customer();
-        customer.setFirstName("first");
-        customer.setLastName("last");
-        customer.setEmail("email");
-        customer.setAddress1("address1");
-        customer.setAddress2("address2");
-        entityManager.persist(customer);
-
-        List<Customer> customerList = repository.findByLastName(customer.getLastName());
+    public void testFindAll() {
+        Customer customer = entityManager.persist(Customer.builder()
+                                                            .firstName("first")
+                                                            .lastName("last")
+                                                            .email("email")
+                                                            .address1("address1")
+                                                            .address2("address2")
+                                                            .build());
+        List<Customer> customerList = repository.findAll();
         assertThat(customerList).extracting(Customer::getLastName).containsOnly(customer.getLastName());
         assertThat(customerList).extracting(Customer::getFirstName).containsOnly(customer.getFirstName());
         assertThat(customerList).extracting(Customer::getAddress1).containsOnly(customer.getAddress1());

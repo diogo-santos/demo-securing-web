@@ -5,8 +5,7 @@
     <title>Search</title>
 </head>
 <body>
-    <div layout:fragment="content">
-        <div class="d-flex justify-content-center">
+    <div layout:fragment="content" align="center">
             <div class="table-responsive-md">
                 <table class="table">
                     <thead>
@@ -29,10 +28,9 @@
                     </tbody>
                 </table>
                 <div th:if="${#lists.isEmpty(list)}">
-                    No customer registration has been created.
+                    No customer registration has been created
                 </div>
             </div>
-        </div>
     </div>
 </body>
 </html>

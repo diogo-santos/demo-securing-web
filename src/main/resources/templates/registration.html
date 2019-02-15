@@ -5,8 +5,8 @@
     <title>Registration</title>
 </head>
 <body>
-    <div layout:fragment="content">
-        <div class="col-md-8">
+    <div layout:fragment="content" align="center">
+        <div class="col-md-8 text-left">
             <h4 class="mb-3" th:inline="text">Registration</h4>
             <form class="needs-validation" novalidate method="post" th:object="${registrationForm}" th:action="@{/registration}">
                 <div class="row">
@@ -96,19 +96,10 @@
                         Please enter a valid Date Of Birth
                     </div>
                 </div>
-
-                <hr class="mb-4">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="saveInfo" th:field="*{saveInfo}">
-                    <label class="custom-control-label" for="saveInfo">Save this information for next time</label>
-                </div>
-
                 <hr class="mb-4">
                 <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
             </form>
         </div>
-    </div>
-
     </div>
 </body>
 </html>
