@@ -1,20 +1,15 @@
-:spring_version: current
-:spring_boot_version: 2.0.5.RELEASE
-:toc:
-:icons: font
-:source-highlighter: prettify
-:project_id: demo-securing-web
-
 == What was build
 Spring MVC application that secures the page with a login form
 
 == What you'll need
-- Java 1.8
-- Maven 3.0+
+Java 1.8
+
+Maven 3.0+
 
 == Instructions
-- Import the project from GitHub
-- Run demo-securing-web app
+Import the project from GitHub
+
+Run demo-securing-web app
 ```
 mvn package && java -jar target/demo-securing-web-1.0.0.jar
 ```
