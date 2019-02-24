@@ -1,7 +1,7 @@
 == demo-securing-web
 
 == What was build
-Spring MVC application that secures the page with a login form
+Spring Web application that secures the page with a login form
 
 == What you'll need
 Java 1.8
