@@ -1,4 +1,4 @@
-package com.demo.form;
+package com.example.securing.web.form;
 
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;

@@ -1,4 +1,4 @@
-package com.demo.controller;
+package com.example.securing.web.controller;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,9 +12,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import static com.demo.controller.RegistrationController.FORM;
-import static com.demo.controller.RegistrationController.REGISTRATION;
-import static com.demo.controller.RegistrationController.SEARCH;
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -32,8 +29,8 @@ public class RegistrationControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    private static final String REGISTRATION_PATH   = "/"+REGISTRATION;
-    private static final String SEARCH_PATH         = "/"+SEARCH;
+    private static final String REGISTRATION_PATH   = "/"+ RegistrationController.REGISTRATION;
+    private static final String SEARCH_PATH         = "/"+ RegistrationController.SEARCH;
 
     @Before
     public void setup() throws Exception {
@@ -51,11 +48,11 @@ public class RegistrationControllerTest {
     public void newRegistrationWhenRequiredFieldIsNull() throws Exception {
         this.mockMvc.perform(post(REGISTRATION_PATH))
                     .andExpect(model()
-                            .attributeHasFieldErrors(FORM,"firstName", "lastName", "address1", "city", "country", "zip"))
+                            .attributeHasFieldErrors(RegistrationController.FORM,"firstName", "lastName", "address1", "city", "country", "zip"))
                     .andExpect(content()
                             .string(containsString("Registration")))
                     .andExpect(view()
-                            .name(REGISTRATION));
+                            .name(RegistrationController.REGISTRATION));
     }
 
     @Test
@@ -69,11 +66,11 @@ public class RegistrationControllerTest {
                                 .param("country","")
                                 .param("zip",""))
                     .andExpect(model()
-                                .attributeHasFieldErrors(FORM,"firstName", "lastName", "address1", "city", "country", "zip"))
+                                .attributeHasFieldErrors(RegistrationController.FORM,"firstName", "lastName", "address1", "city", "country", "zip"))
                     .andExpect(content()
                                 .string(containsString("Registration")))
                     .andExpect(view()
-                                .name(REGISTRATION));
+                                .name(RegistrationController.REGISTRATION));
     }
 
     @Test
@@ -81,11 +78,11 @@ public class RegistrationControllerTest {
         this.mockMvc.perform(post(REGISTRATION_PATH)
                                 .param("dateOfBirth","123"))
                     .andExpect(model()
-                                .attributeHasFieldErrors(FORM,"dateOfBirth"))
+                                .attributeHasFieldErrors(RegistrationController.FORM,"dateOfBirth"))
                     .andExpect(content()
                                 .string(containsString("Registration")))
                     .andExpect(view()
-                                .name(REGISTRATION));
+                                .name(RegistrationController.REGISTRATION));
     }
 
     @Test
@@ -98,7 +95,7 @@ public class RegistrationControllerTest {
                                 .param("city","city")
                                 .param("zip","zip"))
                     .andExpect(model()
-                                .attributeHasNoErrors(FORM));
+                                .attributeHasNoErrors(RegistrationController.FORM));
     }
 
     @Test

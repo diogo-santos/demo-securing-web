@@ -1,4 +1,4 @@
-== demo-securing-web
+== spring-securing-web
 
 == What was build
 Spring Web application that secures the page with a login form
@@ -11,9 +11,9 @@ Maven 3.0+
 == Instructions
 Import the project from GitHub
 
-Run demo-securing-web app
+Run spring-securing-web app
 ```
-mvn package && java -jar target/demo-securing-web-1.0.0.jar
+mvn clean package && java -jar target/spring-securing-web-1.0.0.jar
 ```
 
 == Test the App

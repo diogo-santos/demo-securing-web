@@ -1,7 +1,7 @@
-package com.demo.controller;
+package com.example.securing.web.controller;
 
-import com.demo.form.RegistrationForm;
-import com.demo.service.CustomerService;
+import com.example.securing.web.form.RegistrationForm;
+import com.example.securing.web.service.CustomerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

@@ -1,4 +1,4 @@
-package com.demo;
+package com.example.securing.web;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
