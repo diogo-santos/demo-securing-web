@@ -1,4 +1,4 @@
-== Spring securing web
+== Spring Securing Web
 
 == What was build
 Spring Web application that secures the page with a login form
