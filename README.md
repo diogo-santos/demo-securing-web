@@ -1,14 +1,14 @@
-== Spring Securing Web
+# Spring Securing Web
 
-== What was build
+## What was build
 Spring Web application that secures the page with a login form
 
-== What you'll need
+## What you'll need
 Java 1.8
 
 Maven 3.0+
 
-== Instructions
+## Instructions
 Import the project from GitHub
 
 Run spring-securing-web app
@@ -16,7 +16,7 @@ Run spring-securing-web app
 mvn clean package && java -jar target/spring-securing-web-1.0.0.jar
 ```
 
-== Test the App
+## Test the App
 Now that the web site is running, visit http://localhost:9080/demo, the landing page displays a welcome message
 
 Login/Password: user/pass
