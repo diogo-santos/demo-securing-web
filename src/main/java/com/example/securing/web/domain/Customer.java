@@ -1,4 +1,4 @@
-package com.example.securing.web;
+package com.example.securing.web.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,7 +19,7 @@ import java.time.LocalDate;
 public
 class Customer {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;

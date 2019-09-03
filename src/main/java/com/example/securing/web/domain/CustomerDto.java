@@ -1,6 +1,6 @@
-package com.example.securing.web;
+package com.example.securing.web.domain;
 
-public interface CustomerDTO {
+public interface CustomerDto {
     Long getId();
     String getFirstName();
     String getLastName();

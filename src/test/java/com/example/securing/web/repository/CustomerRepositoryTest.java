@@ -1,7 +1,7 @@
 package com.example.securing.web.repository;
 
-import com.example.securing.web.Customer;
-import com.example.securing.web.CustomerDTO;
+import com.example.securing.web.domain.Customer;
+import com.example.securing.web.domain.CustomerDto;
 import com.example.securing.web.CustomerRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -52,10 +52,10 @@ public class CustomerRepositoryTest {
                                                             .address1("address1Dto")
                                                             .address2("address2Dto")
                                                             .build());
-        List<CustomerDTO> customerList = repository.findBy();
-        assertThat(customerList).extracting(CustomerDTO::getLastName).containsOnly(customer.getLastName());
-        assertThat(customerList).extracting(CustomerDTO::getFirstName).containsOnly(customer.getFirstName());
-        assertThat(customerList).extracting(CustomerDTO::getId).containsOnly(customer.getId());
-        assertThat(customerList).extracting(CustomerDTO::getEmail).containsOnly(customer.getEmail());
+        List<CustomerDto> customerList = repository.findBy();
+        assertThat(customerList).extracting(CustomerDto::getLastName).containsOnly(customer.getLastName());
+        assertThat(customerList).extracting(CustomerDto::getFirstName).containsOnly(customer.getFirstName());
+        assertThat(customerList).extracting(CustomerDto::getId).containsOnly(customer.getId());
+        assertThat(customerList).extracting(CustomerDto::getEmail).containsOnly(customer.getEmail());
     }
 }

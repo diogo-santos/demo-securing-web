@@ -1,5 +1,7 @@
 package com.example.securing.web;
 
+import com.example.securing.web.domain.Customer;
+import com.example.securing.web.domain.CustomerDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +21,7 @@ public class CustomerServiceImpl implements CustomerService {
         repository.save(customer);
     }
 
-    public List<CustomerDTO> find() {
+    public List<CustomerDto> find() {
         return repository.findBy();
     }
 }
