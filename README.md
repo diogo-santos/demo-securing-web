@@ -1,7 +1,6 @@
 # Spring Securing Web
 
-## What was build
-Spring Web application that secures the page with a login form
+Spring Web application that secures the app with a login form leveraging JDBC Authentication and bcrypt for hashing
 
 ## What you'll need
 Java 1.8
@@ -19,4 +18,6 @@ mvn clean package && java -jar target/spring-securing-web-1.0.0.jar
 ## Test the App
 Now that the web site is running, visit http://localhost:9080/demo, the landing page displays a welcome message
 
-Login/Password: user/pass
+Login/Password: user/password
+
+![](print.png)
