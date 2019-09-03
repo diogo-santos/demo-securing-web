@@ -1,7 +1,5 @@
-package com.example.securing.web.repository;
+package com.example.securing.web;
 
-import com.example.securing.web.dto.CustomerDTO;
-import com.example.securing.web.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

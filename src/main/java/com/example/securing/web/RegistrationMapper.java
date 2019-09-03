@@ -1,7 +1,5 @@
-package com.example.securing.web.mapper;
+package com.example.securing.web;
 
-import com.example.securing.web.entity.Customer;
-import com.example.securing.web.form.RegistrationForm;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

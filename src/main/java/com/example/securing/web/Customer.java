@@ -1,4 +1,4 @@
-package com.example.securing.web.entity;
+package com.example.securing.web;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,7 +16,8 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Customer {
+public
+class Customer {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;

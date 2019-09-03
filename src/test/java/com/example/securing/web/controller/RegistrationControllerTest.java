@@ -1,5 +1,6 @@
 package com.example.securing.web.controller;
 
+import com.example.securing.web.RegistrationController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,7 +34,7 @@ public class RegistrationControllerTest {
     private static final String SEARCH_PATH         = "/"+ RegistrationController.SEARCH;
 
     @Before
-    public void setup() throws Exception {
+    public void setup() {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
     }
 

@@ -1,6 +1,8 @@
 package com.example.securing.web.repository;
 
-import com.example.securing.web.entity.Customer;
+import com.example.securing.web.Customer;
+import com.example.securing.web.CustomerDTO;
+import com.example.securing.web.CustomerRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +41,21 @@ public class CustomerRepositoryTest {
         assertThat(customerList).extracting(Customer::getCity).containsOnly(customer.getCity());
         assertThat(customerList).extracting(Customer::getZip).containsOnly(customer.getZip());
         assertThat(customerList).extracting(Customer::getDateOfBirth).containsOnly(customer.getDateOfBirth());
+    }
+
+    @Test
+    public void testFindDtoList() {
+        Customer customer = entityManager.persist(Customer.builder()
+                                                            .firstName("firstDto")
+                                                            .lastName("lastDto")
+                                                            .email("emailDto")
+                                                            .address1("address1Dto")
+                                                            .address2("address2Dto")
+                                                            .build());
+        List<CustomerDTO> customerList = repository.findBy();
+        assertThat(customerList).extracting(CustomerDTO::getLastName).containsOnly(customer.getLastName());
+        assertThat(customerList).extracting(CustomerDTO::getFirstName).containsOnly(customer.getFirstName());
+        assertThat(customerList).extracting(CustomerDTO::getId).containsOnly(customer.getId());
+        assertThat(customerList).extracting(CustomerDTO::getEmail).containsOnly(customer.getEmail());
     }
 }

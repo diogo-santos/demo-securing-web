@@ -1,6 +1,5 @@
-package com.example.securing.web.service;
+package com.example.securing.web;
 
-import com.example.securing.web.form.RegistrationForm;
 import java.util.List;
 
 public interface CustomerService {

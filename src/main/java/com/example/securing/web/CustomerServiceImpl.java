@@ -1,10 +1,5 @@
-package com.example.securing.web.service;
+package com.example.securing.web;
 
-import com.example.securing.web.dto.CustomerDTO;
-import com.example.securing.web.entity.Customer;
-import com.example.securing.web.form.RegistrationForm;
-import com.example.securing.web.mapper.RegistrationMapper;
-import com.example.securing.web.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

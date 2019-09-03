@@ -1,4 +1,4 @@
-package com.example.securing.web.form;
+package com.example.securing.web;
 
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -9,8 +9,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 @Data
-public class RegistrationForm implements Serializable {
-    private static final long serialVersionUID = 1L;
+class RegistrationForm implements Serializable {
     @NotEmpty
     @Size(max = 20)
     private String firstName;

@@ -1,7 +1,5 @@
-package com.example.securing.web.controller;
+package com.example.securing.web;
 
-import com.example.securing.web.form.RegistrationForm;
-import com.example.securing.web.service.CustomerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,14 +11,14 @@ import javax.validation.Valid;
 @Controller
 public class RegistrationController {
 
-    private final CustomerService customerService;
+    private final CustomerService service;
 
-    static final String REGISTRATION = "registration";
-    static final String SEARCH       = "search";
-    static final String FORM         = "registrationForm";
+    public static final String REGISTRATION = "registration";
+    public static final String SEARCH       = "search";
+    public static final String FORM         = "registrationForm";
 
     public RegistrationController(CustomerService customerService) {
-        this.customerService = customerService;
+        this.service = customerService;
     }
 
     @GetMapping(REGISTRATION)
@@ -32,7 +30,7 @@ public class RegistrationController {
     @PostMapping(REGISTRATION)
     public String registration(Model model, @Valid RegistrationForm form, BindingResult result) {
         if (!result.hasErrors()) {
-            customerService.save(form);
+            service.save(form);
             model.addAttribute(new RegistrationForm());
         }
         return REGISTRATION;
@@ -40,7 +38,7 @@ public class RegistrationController {
 
     @GetMapping(SEARCH)
     public String search(Model model) {
-        model.addAttribute("list", customerService.find());
+        model.addAttribute("list", service.find());
         return SEARCH;
     }
 }
