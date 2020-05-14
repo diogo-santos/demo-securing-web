@@ -18,7 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 public class SpringWebApplicationTests {
     @Autowired
@@ -26,13 +26,14 @@ public class SpringWebApplicationTests {
 
     @Test
     public void loginWithValidUserThenAuthenticated() throws Exception {
-        FormLoginRequestBuilder login = formLogin().user("user").password("pass");
-        mockMvc.perform(login).andExpect(authenticated().withUsername("user"));
+        FormLoginRequestBuilder login = formLogin().user("userTest1").password("password");
+        mockMvc.perform(login)
+                .andExpect(authenticated().withUsername("userTest1"));
     }
 
     @Test
     public void loginWithInvalidUserThenUnauthenticated() throws Exception {
-        FormLoginRequestBuilder login = formLogin().user("invalid").password("invalidpassword");
+        FormLoginRequestBuilder login = formLogin().user("invalidUser").password("invalidPassword");
         mockMvc.perform(login).andExpect(unauthenticated());
     }
 

@@ -12,11 +12,12 @@ Import the project from GitHub
 
 Run spring-securing-web app
 ```
-mvn clean package && java -jar target/spring-securing-web-1.0.0.jar
+cd spring-securing-web
+mvn spring-boot:run
 ```
 
 ## Test the App
-Now that the web site is running, visit http://localhost:9080/demo, the landing page displays a welcome message
+Now the website is running, visit http://localhost:8080, the landing page displays a welcome message
 
 Login/Password: user/password
 
