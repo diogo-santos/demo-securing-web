@@ -2,105 +2,123 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/layout}">
 <head>
-    <title>Registration</title>
+    <title th:text="#{registration.title}">...</title>
 </head>
 <body>
-    <div layout:fragment="content" align="center">
-        <div class="col-md-8 text-left">
-            <h4 class="mb-3" th:inline="text">Registration</h4>
-            <form class="needs-validation" novalidate method="post" th:object="${customerForm}" th:action="@{/registration}">
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="firstName">First name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required
-                               th:field="*{firstName}" th:classappend="${#fields.hasErrors('firstName')} ? 'is-invalid'">
-                        <div class="invalid-feedback">
-                            Valid first name is required
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="lastName">Last name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required
-                               th:field="*{lastName}" th:classappend="${#fields.hasErrors('lastName')} ? 'is-invalid'">
-                        <div class="invalid-feedback">
-                            Valid last name is required
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com"
-                           th:field="*{email}" th:classappend="${#fields.hasErrors('email')} ? 'is-invalid'">
+<div layout:fragment="content" align="center">
+    <div class="col-md-8 text-left">
+        <h4 class="mb-3" th:inline="text" th:text="#{registration.title}">...</h4>
+        <form class="needs-validation" novalidate method="post" th:object="${customerForm}"
+              th:action="@{/registration}">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="firstName" th:text="#{registration.firstName}">...</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="" value="" required
+                           th:field="*{firstName}" th:classappend="${#fields.hasErrors('firstName')} ? 'is-invalid'" />
                     <div class="invalid-feedback">
-                        Please enter a valid email address
+                        <span th:text="#{registration.firstName.error}">...</span>
                     </div>
                 </div>
-
-                <div class="mb-3">
-                    <label for="address">Address 1</label>
-                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required
-                           th:field="*{address1}" th:classappend="${#fields.hasErrors('address1')} ? 'is-invalid'">
+                <div class="col-md-6 mb-3">
+                    <label for="lastName" th:text="#{registration.lastName}">...</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required
+                           th:field="*{lastName}" th:classappend="${#fields.hasErrors('lastName')} ? 'is-invalid'" />
                     <div class="invalid-feedback">
-                        Please enter a valid address
+                        <span th:text="#{registration.lastName.error}">...</span>
                     </div>
                 </div>
+            </div>
 
-                <div class="mb-3">
-                    <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-                    <input type="text" class="form-control" id="address2" placeholder="Apartment or suite"
-                           th:field="*{address2}" th:classappend="${#fields.hasErrors('address2')} ? 'is-invalid'">
+            <div class="mb-3">
+                <label for="email">
+                    <span th:text="#{registration.email}">...</span>
+                    <span class="text-muted" th:text="#{registration.optional}">...</span>
+                </label>
+                <input type="email" class="form-control" id="email"
+                       th:field="*{email}"
+                       th:placeholder="#{registration.email.placeholder}"
+                       th:classappend="${#fields.hasErrors('email')} ? 'is-invalid'" />
+                <div class="invalid-feedback">
+                    <span th:text="#{registration.email.error}">...</span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="address" th:text="#{registration.address1}">...</label>
+                <input type="text" class="form-control" id="address" required
+                       th:field="*{address1}"
+                       th:placeholder="#{registration.address1.placeholder}"
+                       th:classappend="${#fields.hasErrors('address1')} ? 'is-invalid'" />
+                <div class="invalid-feedback">
+                    <span th:text="#{registration.address.error}">...</span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="address2">
+                    <span th:text="#{registration.address2}">...</span>
+                    <span class="text-muted" th:text="#{registration.optional}">...</span>
+                </label>
+                <input type="text" class="form-control" id="address2"
+                       th:field="*{address2}"
+                       th:placeholder="#{registration.address1.placeholder}"
+                       th:classappend="${#fields.hasErrors('address2')} ? 'is-invalid'" />
+                <div class="invalid-feedback">
+                    <span th:text="#{registration.address.error}">...</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5 mb-3">
+                    <label for="country" th:text="#{registration.country}">...</label>
+                    <select class="custom-select d-block w-100" id="country" required
+                            th:field="*{country}" th:classappend="${#fields.hasErrors('country')} ? 'is-invalid'">
+                        <option value="" th:text="#{registration.option.empty}">...</option>
+                        <option th:value="#{registration.country.option1}" th:text="#{registration.country.option1}">...</option>
+                    </select>
                     <div class="invalid-feedback">
-                        Please enter a valid address
+                        <span th:text="#{registration.country.error}">...</span>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-md-5 mb-3">
-                        <label for="country">Country</label>
-                        <select class="custom-select d-block w-100" id="country" required
-                                th:field="*{country}" th:classappend="${#fields.hasErrors('country')} ? 'is-invalid'">
-                            <option value="">Choose...</option>
-                            <option value="Ireland">Ireland</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Please select a valid country
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="state">City</label>
-                        <select class="custom-select d-block w-100" id="state" required
-                                th:field="*{city}" th:classappend="${#fields.hasErrors('city')} ? 'is-invalid'">
-                            <option value="">Choose...</option>
-                            <option value="Dublin">Dublin</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Please provide a valid city
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="zip">Zip</label>
-                        <input type="text" class="form-control" id="zip" placeholder="" required
-                               th:field="*{zip}" th:classappend="${#fields.hasErrors('zip')} ? 'is-invalid'">
-                        <div class="invalid-feedback">
-                            Please provide a valid Zip Code
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="address">Date of Birth <span class="text-muted">(Optional)</span></label>
-                    <input type="text" class="form-control" id="dateOfBirth" placeholder="dd/MM/yyyy"
-                           th:field="*{dateOfBirth}" th:classappend="${#fields.hasErrors('dateOfBirth')} ? 'is-invalid'">
+                <div class="col-md-4 mb-3">
+                    <label for="state" th:text="#{registration.city}">...</label>
+                    <select class="custom-select d-block w-100" id="state" required
+                            th:field="*{city}" th:classappend="${#fields.hasErrors('city')} ? 'is-invalid'">
+                        <option value="" th:text="#{registration.option.empty}">...</option>
+                        <option th:value="#{registration.city.option1}" th:text="#{registration.city.option1}">...</option>
+                    </select>
                     <div class="invalid-feedback">
-                        Please enter a valid Date Of Birth
+                        <span th:text="#{registration.city.error}">...</span>
                     </div>
                 </div>
-                <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
-            </form>
-        </div>
+                <div class="col-md-3 mb-3">
+                    <label for="zipCode" th:text="#{registration.zipCode}">...</label>
+                    <input type="text" class="form-control" id="zipCode" placeholder="" required
+                           th:field="*{zipCode}" th:classappend="${#fields.hasErrors('zipCode')} ? 'is-invalid'" />
+                    <div class="invalid-feedback">
+                        <span th:text="#{registration.zipCode.error}">...</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="dateOfBirth" th:text="#{registration.dateOfBirth}">
+                    <span th:text="#{registration.dateOfBirth}">...</span>
+                    <span class="text-muted" th:text="#{registration.optional}">...</span>
+                </label>
+                <input type="text" class="form-control" id="dateOfBirth"
+                       th:field="*{dateOfBirth}"
+                       th:placeholder="#{registration.dateOfBirth.placeholder}"
+                       th:classappend="${#fields.hasErrors('dateOfBirth')} ? 'is-invalid'" />
+                <div class="invalid-feedback">
+                    <span th:text="#{registration.dateOfBirth.error}">...</span>
+                </div>
+            </div>
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit" th:text="#{registration.submit}">...</button>
+        </form>
     </div>
+</div>
 </body>
 </html>
 
