@@ -1,8 +1,7 @@
-package com.example.securing.web.repository;
+package com.example.securing.web;
 
 import com.example.securing.web.domain.Customer;
 import com.example.securing.web.domain.CustomerDto;
-import com.example.securing.web.CustomerRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

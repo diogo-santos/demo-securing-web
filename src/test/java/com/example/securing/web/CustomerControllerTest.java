@@ -1,7 +1,5 @@
-package com.example.securing.web.controller;
+package com.example.securing.web;
 
-import com.example.securing.web.CustomerController;
-import com.example.securing.web.CustomerRepository;
 import com.example.securing.web.domain.CustomerDto;
 import org.junit.Before;
 import org.junit.Test;
