@@ -23,36 +23,19 @@ public class CustomerRepositoryTest {
     private CustomerRepository repository;
 
     @Test
-    public void testFindAll() {
-        Customer customer = entityManager.persist(Customer.builder()
-                                                            .firstName("first")
-                                                            .lastName("last")
-                                                            .email("email")
-                                                            .address1("address1")
-                                                            .address2("address2")
-                                                            .build());
-        List<Customer> customerList = repository.findAll();
-        assertThat(customerList).extracting(Customer::getLastName).containsOnly(customer.getLastName());
-        assertThat(customerList).extracting(Customer::getFirstName).containsOnly(customer.getFirstName());
-        assertThat(customerList).extracting(Customer::getAddress1).containsOnly(customer.getAddress1());
-        assertThat(customerList).extracting(Customer::getAddress2).containsOnly(customer.getAddress2());
-        assertThat(customerList).extracting(Customer::getEmail).containsOnly(customer.getEmail());
-        assertThat(customerList).extracting(Customer::getCountry).containsOnly(customer.getCountry());
-        assertThat(customerList).extracting(Customer::getCity).containsOnly(customer.getCity());
-        assertThat(customerList).extracting(Customer::getZip).containsOnly(customer.getZip());
-        assertThat(customerList).extracting(Customer::getDateOfBirth).containsOnly(customer.getDateOfBirth());
-    }
-
-    @Test
-    public void testFindDtoList() {
-        Customer customer = entityManager.persist(Customer.builder()
-                                                            .firstName("firstDto")
-                                                            .lastName("lastDto")
-                                                            .email("emailDto")
-                                                            .address1("address1Dto")
-                                                            .address2("address2Dto")
-                                                            .build());
-        List<CustomerDto> customerList = repository.findBy();
+    public void testFindAllCustomer() {
+        // Given
+        Customer customerToSave = Customer.builder()
+                .firstName("firstDto")
+                .lastName("lastDto")
+                .email("emailDto")
+                .address1("address1Dto")
+                .address2("address2Dto")
+                .build();
+        // When
+        Customer customer = entityManager.persist(customerToSave);
+        // Then
+        List<CustomerDto> customerList = repository.findAllCustomersBy();
         assertThat(customerList).extracting(CustomerDto::getLastName).containsOnly(customer.getLastName());
         assertThat(customerList).extracting(CustomerDto::getFirstName).containsOnly(customer.getFirstName());
         assertThat(customerList).extracting(CustomerDto::getId).containsOnly(customer.getId());

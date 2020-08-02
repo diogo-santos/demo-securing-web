@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 @Data
-class RegistrationForm implements Serializable {
+class CustomerForm implements Serializable {
     @NotEmpty
     @Size(max = 20)
     private String firstName;
