@@ -26,14 +26,17 @@ public class SpringWebApplicationTest {
 
     @Test
     public void loginWithValidUserThenAuthenticated() throws Exception {
+        // Given
         FormLoginRequestBuilder login = formLogin().user("userTest1").password("password");
-        mockMvc.perform(login)
-                .andExpect(authenticated().withUsername("userTest1"));
+        // When And Then
+        mockMvc.perform(login).andExpect(authenticated().withUsername("userTest1"));
     }
 
     @Test
     public void loginWithInvalidUserThenUnauthenticated() throws Exception {
+        // Given
         FormLoginRequestBuilder login = formLogin().user("invalidUser").password("invalidPassword");
+        //When And Then
         mockMvc.perform(login).andExpect(unauthenticated());
     }
 

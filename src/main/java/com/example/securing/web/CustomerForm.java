@@ -3,6 +3,7 @@ package com.example.securing.web;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -16,6 +17,7 @@ class CustomerForm implements Serializable {
     @NotEmpty
     @Size(max = 20)
     private String lastName;
+    @Email
     @Size(max = 40)
     private String email;
     @NotEmpty
@@ -30,8 +32,8 @@ class CustomerForm implements Serializable {
     @Size(max = 20)
     private String city;
     @NotEmpty
-    @Size(max = 20)
-    private String zip;
+    @Size(max = 10)
+    private String zipCode;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate dateOfBirth;
 }

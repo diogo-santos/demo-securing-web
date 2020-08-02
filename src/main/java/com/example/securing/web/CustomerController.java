@@ -1,5 +1,6 @@
 package com.example.securing.web;
 
+import com.example.securing.web.domain.CustomerDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class CustomerController {
@@ -38,7 +40,8 @@ public class CustomerController {
 
     @GetMapping(SEARCH)
     public String search(Model model) {
-        model.addAttribute("list", service.findAllCustomers());
+        List<CustomerDto> customerList = service.findAllCustomers();
+        model.addAttribute("customerList", customerList);
         return SEARCH;
     }
 }

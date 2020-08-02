@@ -70,7 +70,7 @@ public class CustomerControllerTest {
                 .andExpect(content().string(containsString("Registration")))
                 .andExpect(view().name(CustomerController.REGISTRATION))
                 .andExpect(model().attributeHasFieldErrors(CustomerController.FORM,
-                        "firstName", "lastName", "address1", "city", "country", "zip"));
+                        "firstName", "lastName", "address1", "city", "country", "zipCode"));
 
     }
 
@@ -84,7 +84,7 @@ public class CustomerControllerTest {
                 .param("address2", "")
                 .param("city", "")
                 .param("country", "")
-                .param("zip", "");
+                .param("zipCode", "");
         // When
         ResultActions resultActions = this.mockMvc.perform(postAction);
         // Then
@@ -92,7 +92,7 @@ public class CustomerControllerTest {
                 .andExpect(content().string(containsString("Registration")))
                 .andExpect(view().name(CustomerController.REGISTRATION))
                 .andExpect(model().attributeHasFieldErrors(CustomerController.FORM,
-                        "firstName", "lastName", "address1", "city", "country", "zip"));
+                        "firstName", "lastName", "address1", "city", "country", "zipCode"));
 
     }
 
@@ -120,7 +120,7 @@ public class CustomerControllerTest {
                 .param("country", "country")
                 .param("email", "test@email.com")
                 .param("city", "city")
-                .param("zip", "zip");
+                .param("zipCode", "zip code");
         // When
         ResultActions resultActions = this.mockMvc.perform(postAction);
         // Then

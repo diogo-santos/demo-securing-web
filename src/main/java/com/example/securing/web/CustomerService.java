@@ -23,7 +23,7 @@ public class CustomerService {
                 .address2(form.getAddress2())
                 .country(form.getCountry())
                 .city(form.getCity())
-                .zip(form.getZip())
+                .zipCode(form.getZipCode())
                 .dateOfBirth(form.getDateOfBirth())
                 .build();
         repository.save(customer);

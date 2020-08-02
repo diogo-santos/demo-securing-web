@@ -17,6 +17,6 @@ CREATE TABLE CUSTOMER (
   address2 VARCHAR(40),
   country VARCHAR(20),
   city VARCHAR(20),
-  zip VARCHAR(20),
+  zip_code VARCHAR(10),
   date_of_birth DATE
 );
