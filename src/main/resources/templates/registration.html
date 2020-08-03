@@ -44,6 +44,20 @@
             </div>
 
             <div class="mb-3">
+                <label for="dateOfBirth">
+                    <span th:text="#{registration.dateOfBirth}">...</span>
+                    <span class="text-muted" th:text="#{registration.optional}">...</span>
+                </label>
+                <input type="text" class="form-control" id="dateOfBirth"
+                       th:field="*{dateOfBirth}"
+                       th:placeholder="#{registration.dateOfBirth.placeholder}"
+                       th:classappend="${#fields.hasErrors('dateOfBirth')} ? 'is-invalid'" />
+                <div class="invalid-feedback">
+                    <span th:text="#{registration.dateOfBirth.error}">...</span>
+                </div>
+            </div>
+
+            <div class="mb-3">
                 <label for="address" th:text="#{registration.address1}">...</label>
                 <input type="text" class="form-control" id="address" required
                        th:field="*{address1}"
@@ -98,20 +112,6 @@
                     <div class="invalid-feedback">
                         <span th:text="#{registration.zipCode.error}">...</span>
                     </div>
-                </div>
-            </div>
-
-            <div class="mb-3">
-                <label for="dateOfBirth" th:text="#{registration.dateOfBirth}">
-                    <span th:text="#{registration.dateOfBirth}">...</span>
-                    <span class="text-muted" th:text="#{registration.optional}">...</span>
-                </label>
-                <input type="text" class="form-control" id="dateOfBirth"
-                       th:field="*{dateOfBirth}"
-                       th:placeholder="#{registration.dateOfBirth.placeholder}"
-                       th:classappend="${#fields.hasErrors('dateOfBirth')} ? 'is-invalid'" />
-                <div class="invalid-feedback">
-                    <span th:text="#{registration.dateOfBirth.error}">...</span>
                 </div>
             </div>
             <hr class="mb-4">
