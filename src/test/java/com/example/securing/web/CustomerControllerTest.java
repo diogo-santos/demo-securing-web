@@ -52,9 +52,15 @@ public class CustomerControllerTest {
     }
 
     @Test
+    public void getRegistrationPageTranslatedTest() throws Exception {
+        this.mockMvc.perform(get(REGISTRATION_PATH + "?lang=it"))
+                .andExpect(content().string(containsString("Registrazione")));
+    }
+
+    @Test
     public void getSearchWhenNoResults() throws Exception {
         this.mockMvc.perform(get(SEARCH_PATH))
-                .andExpect(content().string(containsString("No customer registration has been created")));
+                .andExpect(content().string(containsString("No registration has been created")));
     }
 
     @Test
