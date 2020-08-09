@@ -37,8 +37,9 @@ public class CustomerControllerTest {
     @Autowired
     CustomerRepository repository;
 
-    private static final String REGISTRATION_PATH = "/" + CustomerController.REGISTRATION;
-    private static final String SEARCH_PATH = "/" + CustomerController.SEARCH;
+    private static final String REGISTRATION_PATH = "/registration";
+    private static final String SEARCH_PATH = "/search";
+    private static final String CUSTOMER_FORM = "customerForm";
 
     @Before
     public void setup() {
@@ -73,7 +74,7 @@ public class CustomerControllerTest {
         resultActions
                 .andExpect(content().string(containsString("Registration")))
                 .andExpect(view().name(CustomerController.REGISTRATION))
-                .andExpect(model().attributeHasFieldErrors(CustomerController.FORM,
+                .andExpect(model().attributeHasFieldErrors(CUSTOMER_FORM,
                         "firstName", "lastName", "address1", "city", "country", "zipCode"));
 
     }
@@ -95,7 +96,7 @@ public class CustomerControllerTest {
         resultActions
                 .andExpect(content().string(containsString("Registration")))
                 .andExpect(view().name(CustomerController.REGISTRATION))
-                .andExpect(model().attributeHasFieldErrors(CustomerController.FORM,
+                .andExpect(model().attributeHasFieldErrors(CUSTOMER_FORM,
                         "firstName", "lastName", "address1", "city", "country", "zipCode"));
 
     }
@@ -111,7 +112,7 @@ public class CustomerControllerTest {
         resultActions
                 .andExpect(content().string(containsString("Registration")))
                 .andExpect(view().name(CustomerController.REGISTRATION))
-                .andExpect(model().attributeHasFieldErrors(CustomerController.FORM, "dateOfBirth"));
+                .andExpect(model().attributeHasFieldErrors(CUSTOMER_FORM, "dateOfBirth"));
     }
 
     @Test
@@ -128,7 +129,7 @@ public class CustomerControllerTest {
         // When
         ResultActions resultActions = this.mockMvc.perform(postAction);
         // Then
-        resultActions.andExpect(model().attributeHasNoErrors(CustomerController.FORM));
+        resultActions.andExpect(model().attributeHasNoErrors(CUSTOMER_FORM));
 
         List<CustomerDto> customerList = repository.findAllCustomersBy();
         assertThat(customerList).hasSize(1);

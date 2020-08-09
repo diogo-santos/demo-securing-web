@@ -17,19 +17,18 @@ public class CustomerController {
 
     public static final String REGISTRATION = "registration";
     public static final String SEARCH       = "search";
-    public static final String FORM         = "customerForm";
 
     public CustomerController(CustomerService customerService) {
         this.service = customerService;
     }
 
-    @GetMapping(REGISTRATION)
+    @GetMapping("/registration")
     public String registration(Model model) {
         model.addAttribute(new CustomerForm());
         return REGISTRATION;
     }
 
-    @PostMapping(REGISTRATION)
+    @PostMapping("/registration")
     public String registration(Model model, @Valid CustomerForm form, BindingResult result) {
         if (!result.hasErrors()) {
             service.save(form);
@@ -38,7 +37,7 @@ public class CustomerController {
         return REGISTRATION;
     }
 
-    @GetMapping(SEARCH)
+    @GetMapping("/search")
     public String search(Model model) {
         List<CustomerDto> customerList = service.findAllCustomers();
         model.addAttribute("customerList", customerList);
