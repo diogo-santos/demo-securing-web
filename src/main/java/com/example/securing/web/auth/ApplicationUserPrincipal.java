@@ -7,11 +7,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.Collections;
 
-public class CustomerUserPrincipal implements UserDetails {
+public class ApplicationUserPrincipal implements UserDetails {
 
     private User user;
 
-    public CustomerUserPrincipal(User user) {
+    public ApplicationUserPrincipal(User user) {
         super();
         this.user = user;
     }

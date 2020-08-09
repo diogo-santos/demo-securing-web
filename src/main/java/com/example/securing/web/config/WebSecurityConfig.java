@@ -1,6 +1,6 @@
 package com.example.securing.web.config;
 
-import com.example.securing.web.auth.CustomerUserDetailsService;
+import com.example.securing.web.auth.ApplicationUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private CustomerUserDetailsService userDetailsService;
+    private ApplicationUserDetailsService userDetailsService;
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider(){
