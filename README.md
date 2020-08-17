@@ -1,8 +1,8 @@
-# Spring Securing Web
+# Spring Security Web
 
-Spring Web application that secures the app with a login form leveraging JDBC Authentication and bcrypt for hashing
-- [ ] Spring Security using JDBC and Bcrypt, MVC, JPA
-- [ ] Internationalization using Spring LocaleResolver
+Spring Web application with a login leveraging JDBC Authentication and Bcrypt for hashing
+- [ ] Spring Security using JDBC and Bcrypt, MVC, JPA with Hibernate
+- [ ] Internationalization using Spring Locale Resolver
 - [ ] Bootstrap 4 for cool presentation and responsive behavior
 - [ ] JQuery for front end validation
 
